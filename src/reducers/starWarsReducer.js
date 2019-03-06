@@ -1,8 +1,8 @@
-import /* we need our action types here*/ "../actions";
+import {FETCHING, SUCCESS, FAILURE} from "../actions";
 
 const initialState = {
   characters: [],
-  isFetching: false,
+  fetching: false,
   error: null
   // Array characters, Boolean fetching, null error.
 };
@@ -15,19 +15,19 @@ export const charsReducer = (state = initialState, action) => {
       return {
         ...state,
         error: '',
-        isFetching: true
+        fetching: true
       };
     case SUCCESS:
       return {
         ...state,
         error: '',
-        isFetching: false,
+        fetching: false,
         characters: action.payload
       };
     case FAILURE:
       return {
         ...state,
-        isFetching: false,
+        fetching: false,
         error: action.payload
       };
     default:
